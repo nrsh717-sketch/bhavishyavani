@@ -1,1 +1,23 @@
 
+
+</footer>
+<script>
+function generateKundli(){
+ const name=document.getElementById('name').value;
+ const date=document.getElementById('dob').value;
+ const time=document.getElementById('time').value;
+ const place=document.getElementById('place').value;
+ if(!name||!date||!time||!place){
+ alert('Please fill all birth details');
+ return;
+ }
+ const result=document.getElementById('result');
+ result.style.display='block';
+ result.innerHTML='<h3>Welcome '+name+'!</h3><p>Your birth details have been received.</p><p>Date: '+date+'</p><p>Time: '+time+'</p><p>Place: '+place+'</p><p>Detailed Kundli calculation will be available soon.</p>';
+}
+function horoscope(){
+ alert('Daily Horoscope service is coming soon!');
+}
+</script>
+</body>
+</html>
