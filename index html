@@ -141,3 +141,5 @@ r.innerHTML="<div class='card'><h3>"+s+" Horoscope</h3><p>Stay positive, think c
 </script>
 </body>
 </html>
+
+
