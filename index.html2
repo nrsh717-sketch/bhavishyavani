@@ -1,1 +1,116 @@
 
+
+button{margin-top:18px}
+.result{display:none;background:#263957;padding:18px;border-radius:9px;margin-top:15px;color:#fff;line-height:1.8}
+footer{background:#101d39;text-align:center;padding:30px 15px;color:#bbc5d8}
+@media(max-width:400px){
+.logo{font-size:23px}
+.hero h1{font-size:29px}
+.grid{gap:8px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">✦ BHAVISHYAVANI ✦</div>
+<p>Your Future, Your Stars</p>
+</header>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="#kundli">Free Kundli</a>
+<a href="#horoscope">Horoscope</a>
+</nav>
+
+<div class="hero" id="home">
+<div class="mandala">☸</div>
+<h1>Discover Your Future</h1>
+<p>Explore Vedic Astrology, Kundali and Horoscope.<br>Your journey towards a better tomorrow starts here.</p>
+<a class="btn" href="#kundli">Generate Free Kundli</a>
+<a class="btn" href="#services">Explore Services</a>
+</div>
+
+<section id="services">
+<h2>Our Astrology Services</h2>
+<p class="subtitle">Explore the wisdom of Vedic Astrology</p>
+<div class="grid">
+<div class="card"><div class="icon">🔮</div><h3>Free Kundli</h3><p>Explore your birth chart and planetary details.</p></div>
+<div class="card"><div class="icon">🌞</div><h3>Daily Horoscope</h3><p>Read your daily zodiac predictions.</p></div>
+<div class="card"><div class="icon">💑</div><h3>Marriage Matching</h3><p>Discover traditional compatibility insights.</p></div>
+<div class="card"><div class="icon">✨</div><h3>AI Astrology</h3><p>Get general astrology guidance.</p></div>
+</div>
+</section>
+
+<section id="kundli">
+<h2>Free Kundli Generator</h2>
+<p class="subtitle">Enter your birth details below</p>
+<div class="container formbox">
+<label>Full Name</label>
+<input id="name" placeholder="Enter your name">
+<label>Date of Birth</label>
+<input type="date" id="dob">
+<label>Time of Birth</label>
+<input type="time" id="time">
+<label>Place of Birth</label>
+<input id="place" placeholder="City or Town">
+<button class="btn" onclick="generateKundli()">Generate Kundli</button>
+<div id="result" class="result"></div>
+</div>
+</section>
+
+<section id="horoscope">
+<h2>Daily Horoscope</h2>
+<p class="subtitle">Select your zodiac sign</p>
+<div class="container">
+<select id="zodiac">
+<option value="">Select Zodiac Sign</option>
+<option>Aries</option><option>Taurus</option>
+<option>Gemini</option><option>Cancer</option>
+<option>Leo</option><option>Virgo</option>
+<option>Libra</option><option>Scorpio</option>
+<option>Sagittarius</option><option>Capricorn</option>
+<option>Aquarius</option><option>Pisces</option>
+</select>
+<button class="btn" onclick="showHoroscope()">View Horoscope</button>
+<div id="horoscopeResult" class="result"></div>
+</div>
+</section>
+
+<footer>
+<h3 style="color:#efc773">BHAVISHYAVANI</h3>
+<p>Your Future, Your Stars</p>
+<p>Online Astrology | Free Kundli | Horoscope</p>
+<p>© 2026 Bhavishyavani. All Rights Reserved.</p>
+</footer>
+
+<script>
+function generateKundli(){
+let n=document.getElementById('name').value.trim();
+let d=document.getElementById('dob').value;
+let t=document.getElementById('time').value;
+let p=document.getElementById('place').value.trim();
+if(!n||!d||!t||!p){
+alert('Please fill all birth details');
+return;
+}
+let r=document.getElementById('result');
+r.style.display='block';
+r.innerHTML='<h3>Welcome '+escapeText(n)+'!</h3><p>Your birth details have been received.</p><p>Date: '+d+'</p><p>Time: '+t+'</p><p>Place: '+escapeText(p)+'</p><p>Detailed Kundli calculation will be added soon.</p>';
+}
+function escapeText(s){
+return s.replace(/[&<>"']/g,function(c){
+return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+});
+}
+function showHoroscope(){
+let z=document.getElementById('zodiac').value;
+if(!z){alert('Please select your zodiac sign');return;}
+let r=document.getElementById('horoscopeResult');
+r.style.display='block';
+r.innerHTML='<h3>'+z+' Horoscope</h3><p>Your daily horoscope service is coming soon. Please check again later.</p>';
+}
+</script>
+</body>
+</html>
